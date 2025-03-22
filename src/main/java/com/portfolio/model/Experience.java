@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import lombok.Data;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -15,13 +16,20 @@ public class Experience {
     private Long id;
 
     @Column(nullable = false)
-    private String jobTitle;
+    private String company;
 
+    @Column(nullable = false)
+    private String position;
+
+    @Column(length = 1000)
     private String description;
 
-    private Integer startYear;
+    private LocalDate startDate;
 
-    private Integer endYear;
+    private LocalDate endDate;
 
-    private String technologies;
+    private String location;
+
+    @Column(name = "experience_order")
+    private Integer order;
 }
